@@ -1,5 +1,4 @@
 # Dashboard Part
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -14,7 +13,6 @@ st.set_page_config(
 )
 
 st.title("🌍 AirPulse AI")
-
 st.subheader(
     "Intelligent Global Air Quality Monitoring & Prediction System"
 )
