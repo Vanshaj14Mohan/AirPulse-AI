@@ -18,7 +18,6 @@ st.subheader(
 )
 
 st.sidebar.title("Navigation")
-
 page = st.sidebar.radio(
     "Go to",
     [
