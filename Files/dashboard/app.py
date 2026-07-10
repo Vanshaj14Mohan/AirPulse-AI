@@ -17,6 +17,7 @@ st.subheader(
     "Intelligent Global Air Quality Monitoring & Prediction System"
 )
 
+
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
     "Go to",
