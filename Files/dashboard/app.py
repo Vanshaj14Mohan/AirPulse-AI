@@ -31,7 +31,9 @@ page = st.sidebar.radio(
     ]
 )
 
+
 df = pd.read_csv("../data/processed_air_quality.csv")
+
 
 if page == "Home":
     st.header("Welcome to AirPulse AI")
@@ -49,6 +51,7 @@ if page == "Home":
         """
     )
     
+
 st.subheader("Dataset Preview")
 st.dataframe(df.head())
 
