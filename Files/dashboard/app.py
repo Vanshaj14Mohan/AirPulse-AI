@@ -13,6 +13,7 @@ st.set_page_config(
 )
 
 st.title("🌍 AirPulse AI")
+
 st.subheader(
     "Intelligent Global Air Quality Monitoring & Prediction System"
 )
