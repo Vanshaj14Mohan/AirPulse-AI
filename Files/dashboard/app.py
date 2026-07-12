@@ -20,6 +20,7 @@ st.subheader(
 
 
 st.sidebar.title("Navigation")
+
 page = st.sidebar.radio(
     "Go to",
     [
@@ -54,5 +55,6 @@ if page == "Home":
     
 
 st.subheader("Dataset Preview")
+
 st.dataframe(df.head())
 
