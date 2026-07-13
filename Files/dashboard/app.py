@@ -289,7 +289,6 @@ if page == "🏠 Home":
             hide_index=True
             )
 
-    st.markdown("---")
 
     # =====================================================
     # Dataset Information
