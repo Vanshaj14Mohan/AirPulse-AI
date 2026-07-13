@@ -295,22 +295,35 @@ if page == "🏠 Home":
     # Dataset Information
     # =====================================================
 
+    # with st.expander("📌 Dataset Information"):
+
+    #     st.write("### Shape")
+
+    #     st.write(df.shape)
+
+    #     st.write("### Columns")
+
+    #     st.write(df.columns.tolist())
+
+    #     st.write("### Data Types")
+
+    #     st.dataframe(df.dtypes.astype(str))
+
+    #     st.write("### Statistical Summary")
+
+    #     st.dataframe(df.describe())
     with st.expander("📌 Dataset Information"):
 
         st.write("### Shape")
-
         st.write(df.shape)
 
         st.write("### Columns")
-
         st.write(df.columns.tolist())
 
         st.write("### Data Types")
-
         st.dataframe(df.dtypes.astype(str))
 
         st.write("### Statistical Summary")
-
         st.dataframe(df.describe())
 
 # ==========================================================
