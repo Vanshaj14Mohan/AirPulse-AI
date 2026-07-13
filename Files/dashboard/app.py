@@ -273,11 +273,20 @@ if page == "🏠 Home":
     # Dataset Preview
     # =====================================================
 
-    st.subheader("📋 Dataset Preview")
+    # st.subheader("📋 Dataset Preview")
+
+    # st.dataframe(
+    #     df.head(10),
+    #     use_container_width=True
+    # )
+
+    with st.expander("📋 Dataset Preview (Click to View Top 10 Records)"):
+        st.write("### Top 10 Records")
 
     st.dataframe(
         df.head(10),
-        use_container_width=True
+        use_container_width=True,
+        hide_index=True
     )
 
     st.markdown("---")
