@@ -49,9 +49,7 @@ from utils import (
 # classifier = joblib.load("../models/xgboost_classifier.pkl")
 
 df = load_processed_dataset()
-
 regressor = load_regressor()
-
 classifier = load_classifier()
 
 # ===========================
