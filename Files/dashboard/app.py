@@ -12,7 +12,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -49,7 +48,9 @@ from utils import (
 # classifier = joblib.load("../models/xgboost_classifier.pkl")
 
 df = load_processed_dataset()
+
 regressor = load_regressor()
+
 classifier = load_classifier()
 
 # ===========================
