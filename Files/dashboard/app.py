@@ -27,20 +27,23 @@ st.set_page_config(
 )
 
 # ===========================
-# Load Dataset
+# Import Utility Functions
 # ===========================
 
-original_df = load_original_dataset()
-
-processed_df = load_processed_dataset()
-
-# df = pd.read_csv("../data/processed_air_quality.csv")
 from utils import (
     load_original_dataset,
     load_processed_dataset,
     load_regressor,
     load_classifier
 )
+
+# ===========================
+# Load Dataset
+# ===========================
+
+original_df = load_original_dataset()
+
+processed_df = load_processed_dataset()
 
 # ===========================
 # Load Models
