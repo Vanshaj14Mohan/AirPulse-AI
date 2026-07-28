@@ -30,28 +30,35 @@ st.set_page_config(
 # Load Dataset
 # ===========================
 
+original_df = load_original_dataset()
+
+processed_df = load_processed_dataset()
+
 # df = pd.read_csv("../data/processed_air_quality.csv")
 from utils import (
+    load_original_dataset,
     load_processed_dataset,
     load_regressor,
     load_classifier
 )
 
-
-
 # ===========================
 # Load Models
 # ===========================
+
+regressor = load_regressor()
+
+classifier = load_classifier()
 
 # regressor = joblib.load("../models/xgboost_regressor.pkl")
 
 # classifier = joblib.load("../models/xgboost_classifier.pkl")
 
-df = load_processed_dataset()
+# df = load_processed_dataset()
 
-regressor = load_regressor()
+# regressor = load_regressor()
 
-classifier = load_classifier()
+# classifier = load_classifier()
 
 # ===========================
 # Sidebar
