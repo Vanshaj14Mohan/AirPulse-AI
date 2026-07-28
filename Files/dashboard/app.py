@@ -111,25 +111,25 @@ if page == "🏠 Home":
     with col1:
         st.metric(
             "🌍 Countries",
-            df["country"].nunique()
+            original_df["country"].nunique()
         )
 
     with col2:
         st.metric(
             "🏙 Cities",
-            df["city"].nunique()
+            original_df["city"].nunique()
         )
 
     with col3:
         st.metric(
             "📄 Records",
-            f"{len(df):,}"
+            f"{len(original_df):,}"
         )
 
     with col4:
         st.metric(
             "🌫 Average AQI",
-            round(df["aqi"].mean(), 2)
+            round(original_df["aqi"].mean(), 2)
         )
 
     st.markdown("---")
@@ -252,19 +252,19 @@ if page == "🏠 Home":
 
         st.write("### Shape")
 
-        st.write(df.shape)
+        st.write(original_df.shape)
 
         st.write("### Columns")
 
-        st.write(df.columns.tolist())
+        st.write(original_df.columns.tolist())
 
         st.write("### Data Types")
 
-        st.dataframe(df.dtypes.astype(str))
+        st.dataframe(original_df.dtypes.astype(str))
 
         st.write("### Statistical Summary")
 
-        st.dataframe(df.describe())
+        st.dataframe(original_df.describe())
 
 # ==========================================================
 # Remaining Pages
