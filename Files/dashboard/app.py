@@ -42,7 +42,6 @@ from utils import (
 # ===========================
 
 original_df = load_original_dataset()
-
 processed_df = load_processed_dataset()
 
 # ===========================
@@ -50,18 +49,7 @@ processed_df = load_processed_dataset()
 # ===========================
 
 regressor = load_regressor()
-
 classifier = load_classifier()
-
-# regressor = joblib.load("../models/xgboost_regressor.pkl")
-
-# classifier = joblib.load("../models/xgboost_classifier.pkl")
-
-# df = load_processed_dataset()
-
-# regressor = load_regressor()
-
-# classifier = load_classifier()
 
 # ===========================
 # Sidebar
@@ -86,9 +74,7 @@ page = st.sidebar.radio(
 # ==========================================================
 
 if page == "🏠 Home":
-
     st.title("🌍 AirPulse AI")
-
     st.markdown("""
     ### Intelligent Global Air Quality Monitoring & Prediction System
 
@@ -143,19 +129,13 @@ if page == "🏠 Home":
     left, right = st.columns(2)
 
     with left:
-
         st.success("AQI Prediction")
-
         st.success("AQI Classification")
-
         st.success("Interactive Dashboard")
 
     with right:
-
         st.success("Machine Learning Models")
-
         st.success("Data Analytics")
-
         st.success("Pollution Insights")
 
     st.markdown("---")
@@ -169,27 +149,18 @@ if page == "🏠 Home":
     c1, c2, c3 = st.columns(3)
 
     with c1:
-
         st.info("🐍 Python")
-
         st.info("📊 Pandas")
-
         st.info("📈 Plotly")
 
     with c2:
-
         st.info("🤖 Scikit-Learn")
-
         st.info("⚡ XGBoost")
-
         st.info("🌐 Streamlit")
 
     with c3:
-
         st.info("📉 Matplotlib")
-
         st.info("🎨 Seaborn")
-
         st.info("💾 Joblib")
 
     st.markdown("---")
@@ -199,7 +170,6 @@ if page == "🏠 Home":
     # =====================================================
 
     st.subheader("🔄 AirPulse AI Workflow")
-
     st.markdown("""
 
     **1️⃣ Data Collection**
@@ -236,9 +206,8 @@ if page == "🏠 Home":
 
     with st.expander("📋 Dataset Preview (Click to View Top 10 Records)"):
         st.write("### Top 10 Records")
-
         st.dataframe(
-            df.head(10),
+            original_df.head(10),
             use_container_width=True,
             hide_index=True
             )
@@ -249,21 +218,13 @@ if page == "🏠 Home":
     # =====================================================
 
     with st.expander("📌 Dataset Information"):
-
         st.write("### Shape")
-
         st.write(original_df.shape)
-
         st.write("### Columns")
-
         st.write(original_df.columns.tolist())
-
         st.write("### Data Types")
-
         st.dataframe(original_df.dtypes.astype(str))
-
         st.write("### Statistical Summary")
-
         st.dataframe(original_df.describe())
 
 # ==========================================================
@@ -271,31 +232,21 @@ if page == "🏠 Home":
 # ==========================================================
 
 elif page == "📊 Dashboard":
-
     st.title("📊 Dashboard")
-
     st.info("Coming in Phase 6.2")
 
 elif page == "🤖 AQI Prediction":
-
     st.title("🤖 AQI Prediction")
-
     st.info("Coming in Phase 6.3")
 
 elif page == "🏷 AQI Classification":
-
     st.title("🏷 AQI Classification")
-
     st.info("Coming in Phase 6.4")
 
 elif page == "📈 Model Performance":
-
     st.title("📈 Model Performance")
-
     st.info("Coming in Phase 6.5")
 
 elif page == "ℹ About":
-
     st.title("ℹ About")
-
     st.info("Coming in Phase 6.6")
