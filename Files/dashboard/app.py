@@ -253,7 +253,6 @@ elif page == "📊 Dashboard":
     # ======================================================
 
     st.subheader("🎛 Dashboard Filters")
-
     col1, col2, col3 = st.columns(3)
 
     # ----------------------------
@@ -261,9 +260,7 @@ elif page == "📊 Dashboard":
     # ----------------------------
 
     with col1:
-
         countries = sorted(original_df["country"].unique())
-
         selected_country = st.selectbox(
             "🌍 Select Country",
             ["All"] + countries
