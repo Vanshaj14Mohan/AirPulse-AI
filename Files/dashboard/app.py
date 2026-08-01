@@ -230,29 +230,22 @@ if page == "🏠 Home":
 # Remaining Pages
 # ==========================================================
 
-elif page == "📊 Dashboard":
-    st.title("📊 Dashboard")
-    st.info("Coming in Phase 6.2")
-
+# elif page == "📊 Dashboard":
+#     st.title("📊 Dashboard")
+#     st.info("Coming in Phase 6.2")
 # ==========================================================
 # DASHBOARD PAGE
 # ==========================================================
-
 elif page == "📊 Dashboard":
-
     # ======================================================
     # Dashboard Header
     # ======================================================
-
     st.title("📊 AirPulse AI Dashboard")
-
     st.markdown("""
     ### Interactive Global Air Quality Analytics
-
     Explore worldwide air quality trends using interactive filters,
     visualizations, and environmental insights.
     """)
-
     st.markdown("---")
 
     # ======================================================
