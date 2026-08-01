@@ -24,9 +24,7 @@ import joblib
 
 @st.cache_data
 def load_original_dataset():
-
     df = pd.read_csv("../data/globalAirQuality.csv")
-
     return df
 
 
@@ -52,7 +50,6 @@ def load_processed_dataset():
 
 @st.cache_resource
 def load_regressor():
-
     regressor = joblib.load(
         "../models/xgboost_regressor.pkl"
     )
@@ -66,7 +63,6 @@ def load_regressor():
 
 @st.cache_resource
 def load_classifier():
-
     classifier = joblib.load(
         "../models/xgboost_classifier.pkl"
     )
@@ -83,16 +79,12 @@ def load_classifier():
 # ===========================
 
 def get_aqi_category(aqi):
-
     if aqi <= 50:
         return "Good"
-
     elif aqi <= 100:
         return "Moderate"
-
     elif aqi <= 150:
         return "Unhealthy"
-
     else:
         return "Hazardous"
 
@@ -102,16 +94,12 @@ def get_aqi_category(aqi):
 # ===========================
 
 def get_aqi_color(aqi):
-
     if aqi <= 50:
         return "green"
-
     elif aqi <= 100:
         return "orange"
-
     elif aqi <= 150:
         return "red"
-
     else:
         return "darkred"
 
@@ -121,7 +109,6 @@ def get_aqi_color(aqi):
 # ==========================================================
 
 def dataset_summary(df):
-
     return {
         "Rows": df.shape[0],
         "Columns": df.shape[1],
@@ -136,7 +123,6 @@ def dataset_summary(df):
 # ==========================================================
 
 def get_feature_columns():
-
     return [
         "country",
         "city",
