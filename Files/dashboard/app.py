@@ -230,9 +230,6 @@ if page == "🏠 Home":
 # Remaining Pages
 # ==========================================================
 
-# elif page == "📊 Dashboard":
-#     st.title("📊 Dashboard")
-#     st.info("Coming in Phase 6.2")
 # ==========================================================
 # DASHBOARD PAGE
 # ==========================================================
@@ -271,13 +268,10 @@ elif page == "📊 Dashboard":
     # ----------------------------
 
     with col2:
-
         if selected_country == "All":
-
             cities = sorted(
                 original_df["city"].unique()
             )
-
         else:
 
             cities = sorted(
