@@ -299,22 +299,16 @@ elif page == "📊 Dashboard":
     # ----------------------------
 
     with col3:
-
         if "month" in processed_df.columns:
-
             months = sorted(processed_df["month"].unique())
-
             selected_month = st.selectbox(
                 "📅 Select Month",
                 ["All"] + list(months)
             )
 
         else:
-
             selected_month = "All"
-
             st.warning("Month column not available.")
-
     st.markdown("---")
 
     # ======================================================
@@ -324,19 +318,16 @@ elif page == "📊 Dashboard":
     filtered_df = processed_df.copy()
 
     if selected_country != "All":
-
         filtered_df = filtered_df[
             filtered_df["country"] == selected_country
         ]
 
     if selected_city != "All":
-
         filtered_df = filtered_df[
             filtered_df["city"] == selected_city
         ]
 
     if selected_month != "All":
-
         filtered_df = filtered_df[
             filtered_df["month"] == selected_month
         ]
@@ -346,7 +337,6 @@ elif page == "📊 Dashboard":
     # ======================================================
 
     if filtered_df.empty:
-
         st.warning("No records found for the selected filters.")
 
     else:
