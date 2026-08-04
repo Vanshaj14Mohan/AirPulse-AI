@@ -227,22 +227,31 @@ if page == "🏠 Home":
         st.dataframe(original_df.describe())
 
 # ==========================================================
-# Remaining Pages
+# Remaining Pages of the project
 # ==========================================================
 
 # ==========================================================
 # DASHBOARD PAGE
 # ==========================================================
+# ==========================================================
+# DASHBOARD PAGE
+# ==========================================================
+
 elif page == "📊 Dashboard":
+
     # ======================================================
     # Dashboard Header
     # ======================================================
+
     st.title("📊 AirPulse AI Dashboard")
+
     st.markdown("""
     ### Interactive Global Air Quality Analytics
+
     Explore worldwide air quality trends using interactive filters,
     visualizations, and environmental insights.
     """)
+
     st.markdown("---")
 
     # ======================================================
@@ -250,6 +259,7 @@ elif page == "📊 Dashboard":
     # ======================================================
 
     st.subheader("🎛 Dashboard Filters")
+
     col1, col2, col3 = st.columns(3)
 
     # ----------------------------
@@ -257,10 +267,12 @@ elif page == "📊 Dashboard":
     # ----------------------------
 
     with col1:
-        countries = sorted(original_df["country"].unique())
+
+        countries = sorted(processed_df["country"].unique())
+
         selected_country = st.selectbox(
             "🌍 Select Country",
-            ["All"] + countries
+            ["All"] + list(countries)
         )
 
     # ----------------------------
@@ -268,21 +280,24 @@ elif page == "📊 Dashboard":
     # ----------------------------
 
     with col2:
+
         if selected_country == "All":
+
             cities = sorted(
-                original_df["city"].unique()
+                processed_df["city"].unique()
             )
+
         else:
 
             cities = sorted(
-                original_df[
-                    original_df["country"] == selected_country
+                processed_df[
+                    processed_df["country"] == selected_country
                 ]["city"].unique()
             )
 
         selected_city = st.selectbox(
             "🏙 Select City",
-            ["All"] + cities
+            ["All"] + list(cities)
         )
 
     # ----------------------------
@@ -291,14 +306,20 @@ elif page == "📊 Dashboard":
 
     with col3:
 
-        months = sorted(
-            original_df["month"].unique()
-        )
+        if "month" in processed_df.columns:
 
-        selected_month = st.selectbox(
-            "📅 Select Month",
-            ["All"] + list(months)
-        )
+            months = sorted(processed_df["month"].unique())
+
+            selected_month = st.selectbox(
+                "📅 Select Month",
+                ["All"] + list(months)
+            )
+
+        else:
+
+            selected_month = "All"
+
+            st.warning("Month column not available.")
 
     st.markdown("---")
 
@@ -306,7 +327,7 @@ elif page == "📊 Dashboard":
     # Apply Filters
     # ======================================================
 
-    filtered_df = original_df.copy()
+    filtered_df = processed_df.copy()
 
     if selected_country != "All":
 
@@ -327,142 +348,152 @@ elif page == "📊 Dashboard":
         ]
 
     # ======================================================
-    # KPI Cards
+    # No Data Check
     # ======================================================
 
-    st.subheader("📈 Dashboard Overview")
+    if filtered_df.empty:
 
-    col1, col2, col3, col4 = st.columns(4)
+        st.warning("No records found for the selected filters.")
 
-    with col1:
+    else:
 
-        st.metric(
-            "🌍 Countries",
-            filtered_df["country"].nunique()
+        # ======================================================
+        # KPI Cards
+        # ======================================================
+
+        st.subheader("📈 Dashboard Overview")
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+
+            st.metric(
+                "🌍 Countries",
+                filtered_df["country"].nunique()
+            )
+
+        with col2:
+
+            st.metric(
+                "🏙 Cities",
+                filtered_df["city"].nunique()
+            )
+
+        with col3:
+
+            st.metric(
+                "📄 Total Records",
+                f"{len(filtered_df):,}"
+            )
+
+        with col4:
+
+            st.metric(
+                "🌫 Average AQI",
+                round(filtered_df["aqi"].mean(), 2)
+            )
+
+        st.markdown("---")
+
+        # ======================================================
+        # AQI Distribution
+        # ======================================================
+
+        st.subheader("📊 AQI Distribution")
+
+        fig = px.histogram(
+            filtered_df,
+            x="aqi",
+            nbins=40,
+            title="Distribution of Air Quality Index",
+            color_discrete_sequence=["royalblue"]
         )
 
-    with col2:
-
-        st.metric(
-            "🏙 Cities",
-            filtered_df["city"].nunique()
+        fig.update_layout(
+            xaxis_title="AQI",
+            yaxis_title="Frequency",
+            template="plotly_white"
         )
 
-    with col3:
-
-        st.metric(
-            "📄 Total Records",
-            f"{len(filtered_df):,}"
+        st.plotly_chart(
+            fig,
+            use_container_width=True
         )
 
-    with col4:
+        st.markdown("---")
 
-        st.metric(
-            "🌫 Average AQI",
-            round(filtered_df["aqi"].mean(), 2)
+        # ======================================================
+        # Top 10 Most Polluted Cities
+        # ======================================================
+
+        st.subheader("🏭 Top 10 Most Polluted Cities")
+
+        city_df = (
+            filtered_df
+            .groupby("city")["aqi"]
+            .mean()
+            .sort_values(ascending=False)
+            .head(10)
+            .reset_index()
         )
 
-    st.markdown("---")
+        fig = px.bar(
+            city_df,
+            x="city",
+            y="aqi",
+            color="aqi",
+            color_continuous_scale="Reds",
+            title="Top 10 Cities by Average AQI"
+        )
 
-    # ======================================================
-    # AQI Distribution
-    # ======================================================
+        fig.update_layout(
+            xaxis_title="City",
+            yaxis_title="Average AQI",
+            template="plotly_white"
+        )
 
-    st.subheader("📊 AQI Distribution")
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
 
-    fig = px.histogram(
-        filtered_df,
-        x="aqi",
-        nbins=40,
-        title="Distribution of Air Quality Index",
-        color_discrete_sequence=["royalblue"]
-    )
+        st.markdown("---")
 
-    fig.update_layout(
-        xaxis_title="AQI",
-        yaxis_title="Frequency",
-        template="plotly_white"
-    )
+        # ======================================================
+        # Country-wise AQI
+        # ======================================================
 
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
+        st.subheader("🌍 Country-wise Average AQI")
 
-    st.markdown("---")
+        country_df = (
+            filtered_df
+            .groupby("country")["aqi"]
+            .mean()
+            .sort_values(ascending=False)
+            .reset_index()
+        )
 
-    # ======================================================
-    # Top 10 Most Polluted Cities
-    # ======================================================
+        fig = px.bar(
+            country_df,
+            x="country",
+            y="aqi",
+            color="aqi",
+            color_continuous_scale="Viridis",
+            title="Average AQI by Country"
+        )
 
-    st.subheader("🏭 Top 10 Most Polluted Cities")
+        fig.update_layout(
+            xaxis_title="Country",
+            yaxis_title="Average AQI",
+            template="plotly_white"
+        )
 
-    city_df = (
-        filtered_df
-        .groupby("city")["aqi"]
-        .mean()
-        .sort_values(ascending=False)
-        .head(10)
-        .reset_index()
-    )
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
 
-    fig = px.bar(
-        city_df,
-        x="city",
-        y="aqi",
-        color="aqi",
-        color_continuous_scale="Reds",
-        title="Top 10 Cities by Average AQI"
-    )
-
-    fig.update_layout(
-        xaxis_title="City",
-        yaxis_title="Average AQI",
-        template="plotly_white"
-    )
-
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
-
-    st.markdown("---")
-
-    # ======================================================
-    # Country-wise AQI
-    # ======================================================
-
-    st.subheader("🌍 Country-wise Average AQI")
-
-    country_df = (
-        filtered_df
-        .groupby("country")["aqi"]
-        .mean()
-        .sort_values(ascending=False)
-        .reset_index()
-    )
-
-    fig = px.bar(
-        country_df,
-        x="country",
-        y="aqi",
-        color="aqi",
-        color_continuous_scale="Viridis",
-        title="Average AQI by Country"
-    )
-
-    fig.update_layout(
-        xaxis_title="Country",
-        yaxis_title="Average AQI",
-        template="plotly_white"
-    )
-
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
-
-    st.info("🚀 Phase 6.2 - Part 1 Completed")
+        st.info("🚀 Phase 6.2 - Part 1 Completed")
 
 elif page == "🤖 AQI Prediction":
     st.title("🤖 AQI Prediction")
