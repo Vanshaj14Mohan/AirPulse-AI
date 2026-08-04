@@ -384,7 +384,6 @@ elif page == "📊 Dashboard":
         # ======================================================
 
         st.subheader("📊 AQI Distribution")
-
         fig = px.histogram(
             filtered_df,
             x="aqi",
@@ -411,7 +410,6 @@ elif page == "📊 Dashboard":
         # ======================================================
 
         st.subheader("🏭 Top 10 Most Polluted Cities")
-
         city_df = (
             filtered_df
             .groupby("city")["aqi"]
