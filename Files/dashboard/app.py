@@ -346,32 +346,27 @@ elif page == "📊 Dashboard":
         # ======================================================
 
         st.subheader("📈 Dashboard Overview")
-
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
-
             st.metric(
                 "🌍 Countries",
                 filtered_df["country"].nunique()
             )
 
         with col2:
-
             st.metric(
                 "🏙 Cities",
                 filtered_df["city"].nunique()
             )
 
         with col3:
-
             st.metric(
                 "📄 Total Records",
                 f"{len(filtered_df):,}"
             )
 
         with col4:
-
             st.metric(
                 "🌫 Average AQI",
                 round(filtered_df["aqi"].mean(), 2)
