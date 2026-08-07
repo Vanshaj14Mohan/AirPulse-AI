@@ -33,6 +33,7 @@ st.set_page_config(
 from utils import (
     load_original_dataset,
     load_processed_dataset,
+    load_dashboard_dataset,
     load_regressor,
     load_classifier
 )
@@ -43,6 +44,7 @@ from utils import (
 
 original_df = load_original_dataset()
 processed_df = load_processed_dataset()
+dashboard_df = load_dashboard_dataset()
 
 # ===========================
 # Load Models
@@ -266,7 +268,7 @@ elif page == "📊 Dashboard":
     # ----------------------------
 
     with col1:
-        countries = sorted(processed_df["country"].unique())
+        countries = sorted(dashboard_df["country"].unique())
         selected_country = st.selectbox(
             "🌍 Select Country",
             ["All"] + list(countries)
@@ -279,13 +281,13 @@ elif page == "📊 Dashboard":
     with col2:
         if selected_country == "All":
             cities = sorted(
-                processed_df["city"].unique()
+                dashboard_df["city"].unique()
             )
 
         else:
             cities = sorted(
-                processed_df[
-                    processed_df["country"] == selected_country
+                dashboard_df[
+                    dashboard_df["country"] == selected_country
                 ]["city"].unique()
             )
 
@@ -299,8 +301,8 @@ elif page == "📊 Dashboard":
     # ----------------------------
 
     with col3:
-        if "month" in processed_df.columns:
-            months = sorted(processed_df["month"].unique())
+        if "month" in dashboard_df.columns:
+            months = sorted(dashboard_df["month"].unique())
             selected_month = st.selectbox(
                 "📅 Select Month",
                 ["All"] + list(months)
@@ -315,7 +317,7 @@ elif page == "📊 Dashboard":
     # Apply Filters
     # ======================================================
 
-    filtered_df = processed_df.copy()
+    filtered_df = dashboard_df.copy()
 
     if selected_country != "All":
         filtered_df = filtered_df[
