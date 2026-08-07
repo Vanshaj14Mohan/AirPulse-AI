@@ -260,7 +260,6 @@ elif page == "📊 Dashboard":
     # ======================================================
 
     st.subheader("🎛 Dashboard Filters")
-
     col1, col2, col3 = st.columns(3)
 
     # ----------------------------
@@ -283,7 +282,6 @@ elif page == "📊 Dashboard":
             cities = sorted(
                 dashboard_df["city"].unique()
             )
-
         else:
             cities = sorted(
                 dashboard_df[
@@ -307,7 +305,6 @@ elif page == "📊 Dashboard":
                 "📅 Select Month",
                 ["All"] + list(months)
             )
-
         else:
             selected_month = "All"
             st.warning("Month column not available.")
@@ -340,7 +337,6 @@ elif page == "📊 Dashboard":
 
     if filtered_df.empty:
         st.warning("No records found for the selected filters.")
-
     else:
 
         # ======================================================
@@ -443,7 +439,6 @@ elif page == "📊 Dashboard":
         # ======================================================
 
         st.subheader("🌍 Country-wise Average AQI")
-
         country_df = (
             filtered_df
             .groupby("country")["aqi"]
