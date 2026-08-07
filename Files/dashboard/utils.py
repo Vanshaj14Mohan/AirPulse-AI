@@ -40,6 +40,18 @@ def load_processed_dataset():
     return df
 
 
+# ===========================
+# Load Dashboard Dataset
+# ===========================
+
+@st.cache_data
+def load_dashboard_dataset():
+
+    df = pd.read_csv("../data/dashboard_data.csv")
+
+    return df
+
+
 # ==========================================================
 # MODEL LOADING FUNCTIONS
 # ==========================================================
