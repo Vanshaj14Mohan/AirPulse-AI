@@ -34,9 +34,7 @@ def load_original_dataset():
 
 @st.cache_data
 def load_processed_dataset():
-
     df = pd.read_csv("../data/processed_air_quality.csv")
-
     return df
 
 
@@ -46,9 +44,7 @@ def load_processed_dataset():
 
 @st.cache_data
 def load_dashboard_dataset():
-
     df = pd.read_csv("../data/dashboard_data.csv")
-
     return df
 
 
@@ -164,7 +160,6 @@ def get_feature_columns():
 
 @st.cache_resource
 def load_country_encoder():
-
     encoder = joblib.load(
         "../models/country_encoder.pkl"
     )
@@ -178,7 +173,6 @@ def load_country_encoder():
 
 @st.cache_resource
 def load_city_encoder():
-
     encoder = joblib.load(
         "../models/city_encoder.pkl"
     )
@@ -192,7 +186,6 @@ def load_city_encoder():
 
 @st.cache_resource
 def load_scaler():
-
     scaler = joblib.load(
         "../models/scaler.pkl"
     )
