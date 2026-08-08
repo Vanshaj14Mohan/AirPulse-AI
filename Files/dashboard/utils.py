@@ -153,3 +153,48 @@ def get_feature_columns():
         "day",
         "month"
     ]
+
+# ==========================================================
+# PREPROCESSING OBJECT LOADING FUNCTIONS
+# ==========================================================
+
+# ===========================
+# Load Country Encoder
+# ===========================
+
+@st.cache_resource
+def load_country_encoder():
+
+    encoder = joblib.load(
+        "../models/country_encoder.pkl"
+    )
+
+    return encoder
+
+
+# ===========================
+# Load City Encoder
+# ===========================
+
+@st.cache_resource
+def load_city_encoder():
+
+    encoder = joblib.load(
+        "../models/city_encoder.pkl"
+    )
+
+    return encoder
+
+
+# ===========================
+# Load Scaler
+# ===========================
+
+@st.cache_resource
+def load_scaler():
+
+    scaler = joblib.load(
+        "../models/scaler.pkl"
+    )
+
+    return scaler
