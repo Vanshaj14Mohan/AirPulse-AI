@@ -162,7 +162,6 @@ def load_country_encoder():
 
     return encoder
 
-
 # ===========================
 # Load City Encoder
 # ===========================
