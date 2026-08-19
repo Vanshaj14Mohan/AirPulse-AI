@@ -4,7 +4,6 @@
 # Common helper functions used across all Streamlit pages
 # ==========================================================
 
-
 # ===========================
 # Import Libraries
 # ===========================
@@ -12,7 +11,6 @@
 import streamlit as st
 import pandas as pd
 import joblib
-
 
 # ==========================================================
 # DATA LOADING FUNCTIONS
@@ -46,7 +44,6 @@ def load_processed_dataset():
 def load_dashboard_dataset():
     df = pd.read_csv("../data/dashboard_data.csv")
     return df
-
 
 # ==========================================================
 # MODEL LOADING FUNCTIONS
