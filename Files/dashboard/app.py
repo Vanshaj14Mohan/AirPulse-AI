@@ -39,6 +39,7 @@ from utils import (
 )
 
 from pages.prediction import show_prediction
+
 # ===========================
 # Load Dataset
 # ===========================
