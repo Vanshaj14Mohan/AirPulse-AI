@@ -38,6 +38,7 @@ from utils import (
     load_classifier
 )
 
+from pages.prediction import show_prediction
 # ===========================
 # Load Dataset
 # ===========================
