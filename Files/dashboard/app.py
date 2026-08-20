@@ -471,9 +471,12 @@ elif page == "📊 Dashboard":
 
         st.info("🚀 Phase 6.2 - Part 1 Completed")
 
+# elif page == "🤖 AQI Prediction":
+#     st.title("🤖 AQI Prediction")
+#     st.info("Coming in Phase 6.3")
+
 elif page == "🤖 AQI Prediction":
-    st.title("🤖 AQI Prediction")
-    st.info("Coming in Phase 6.3")
+    show_prediction()
 
 elif page == "🏷 AQI Classification":
     st.title("🏷 AQI Classification")
