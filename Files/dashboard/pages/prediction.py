@@ -9,11 +9,9 @@
 # AQI Prediction Page
 # ==========================================================
 
-
 # ===========================
 # Import Libraries
 # ===========================
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -27,7 +25,6 @@ from utils import (
     get_aqi_category
 )
 
-
 # ===========================
 # Page Configuration
 # ===========================
@@ -37,7 +34,6 @@ st.set_page_config(
     page_icon="🤖",
     layout="wide"
 )
-
 
 # ==========================================================
 # LOAD DATA, MODEL & PREPROCESSING OBJECTS
@@ -64,7 +60,6 @@ XGBoost regression model.
 
 st.markdown("---")
 
-
 # ==========================================================
 # LOCATION INFORMATION
 # ==========================================================
@@ -84,7 +79,6 @@ with col1:
         "🌍 Select Country",
         countries
     )
-
 
 # ===========================
 # City Selection
