@@ -95,7 +95,6 @@ if page == "🏠 Home":
     # =====================================================
 
     st.subheader("📊 Dataset Overview")
-
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
@@ -129,7 +128,6 @@ if page == "🏠 Home":
     # =====================================================
 
     st.subheader("🚀 Features")
-
     left, right = st.columns(2)
 
     with left:
@@ -149,7 +147,6 @@ if page == "🏠 Home":
     # =====================================================
 
     st.subheader("🛠 Technologies Used")
-
     c1, c2, c3 = st.columns(3)
 
     with c1:
