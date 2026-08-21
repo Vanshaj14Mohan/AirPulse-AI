@@ -314,7 +314,6 @@ elif page == "📊 Dashboard":
     # ======================================================
 
     filtered_df = dashboard_df.copy()
-
     if selected_country != "All":
         filtered_df = filtered_df[
             filtered_df["country"] == selected_country
