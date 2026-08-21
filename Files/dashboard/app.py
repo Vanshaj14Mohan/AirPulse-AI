@@ -319,12 +319,10 @@ elif page == "📊 Dashboard":
         filtered_df = filtered_df[
             filtered_df["country"] == selected_country
         ]
-
     if selected_city != "All":
         filtered_df = filtered_df[
             filtered_df["city"] == selected_city
         ]
-
     if selected_month != "All":
         filtered_df = filtered_df[
             filtered_df["month"] == selected_month
