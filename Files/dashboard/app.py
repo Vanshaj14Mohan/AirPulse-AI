@@ -433,7 +433,6 @@ elif page == "📊 Dashboard":
         # ======================================================
         # Country-wise AQI
         # ======================================================
-
         st.subheader("🌍 Country-wise Average AQI")
         country_df = (
             filtered_df
