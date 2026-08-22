@@ -60,7 +60,6 @@ classifier = load_classifier()
 # ===========================
 
 st.sidebar.title("🌍 Navigation")
-
 page = st.sidebar.radio(
     "Go to",
     [
