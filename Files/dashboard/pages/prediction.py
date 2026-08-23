@@ -1,13 +1,11 @@
-import streamlit as st
-
-def show_prediction():
-
-    st.title("🤖 AQI Prediction")
-
 # ==========================================================
 # 🤖 AirPulse AI
 # AQI Prediction Page
 # ==========================================================
+import streamlit as st
+
+def show_prediction():
+    st.title("🤖 AQI Prediction")
 
 # ===========================
 # Import Libraries
@@ -30,7 +28,6 @@ from utils import (
 # ==========================================================
 
 def show_prediction():
-
     # ==========================================================
     # LOAD DATA, MODEL & PREPROCESSING OBJECTS
     # ==========================================================
