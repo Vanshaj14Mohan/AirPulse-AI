@@ -406,3 +406,5 @@ def show_prediction():
             st.error(
                 f"❌ Prediction failed: {e}"
             )
+
+# Part Done
