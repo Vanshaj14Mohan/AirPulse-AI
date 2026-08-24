@@ -53,5 +53,3 @@ def show_classification():
     """)
 
     st.markdown("---")
-
-    st.title("🏷 AQI Classification")
