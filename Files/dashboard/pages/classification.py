@@ -28,15 +28,10 @@ def show_classification():
     # ======================================================
 
     original_df = load_original_dataset()
-
     classifier = load_classifier()
-
     country_encoder = load_country_encoder()
-
     city_encoder = load_city_encoder()
-
     scaler = load_scaler()
-
 
     # ======================================================
     # Page Header
@@ -53,3 +48,44 @@ def show_classification():
     """)
 
     st.markdown("---")
+
+    # ======================================================
+    # LOCATION INFORMATION
+    # ======================================================
+
+    st.subheader("📍 Location Information")
+
+    col1, col2 = st.columns(2)
+
+
+    # ======================================================
+    # Country Selection
+    # ======================================================
+
+    with col1:
+
+        countries = sorted(
+            original_df["country"].dropna().unique()
+        )
+
+        selected_country = st.selectbox(
+            "🌍 Select Country",
+            countries
+        )
+
+    # ======================================================
+    # City Selection
+    # ======================================================
+
+    with col2:
+
+        cities = sorted(
+            original_df[
+                original_df["country"] == selected_country
+            ]["city"].dropna().unique()
+        )
+
+        selected_city = st.selectbox(
+            "🏙 Select City",
+            cities
+        )
