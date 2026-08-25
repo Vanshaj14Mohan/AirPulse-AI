@@ -368,21 +368,6 @@ def show_classification():
                 input_scaled
             )[0]
 
-
-            # ==================================================
-            # Display Classification Result
-            # ==================================================
-
-            st.markdown("---")
-
-            st.subheader("🎯 Classification Result")
-
-
-            st.metric(
-                "🏷 Predicted AQI Category",
-                category
-            )
-
             # ==================================================
             # Convert Numeric Prediction to AQI Category
             # ==================================================
@@ -401,28 +386,42 @@ def show_classification():
 
 
             # ==================================================
+            # Display Classification Result
+            # ==================================================
+
+            st.markdown("---")
+
+            st.subheader("🎯 Classification Result")
+
+            st.metric(
+                "🏷 Predicted AQI Category",
+                category
+            )
+
+
+            # ==================================================
             # Category Message
             # ==================================================
 
-            if str(prediction) == "Good":
+            if category == "Good":
 
                 st.success(
                     "🟢 Air quality is considered good."
                 )
 
-            elif str(prediction) == "Moderate":
+            elif category == "Moderate":
 
                 st.info(
                     "🟡 Air quality is considered moderate."
                 )
 
-            elif str(prediction) == "Unhealthy":
+            elif category == "Unhealthy":
 
                 st.warning(
                     "🟠 Air quality is unhealthy."
                 )
 
-            elif str(prediction) == "Hazardous":
+            elif category == "Hazardous":
 
                 st.error(
                     "⛔ Air quality is hazardous."
@@ -433,7 +432,6 @@ def show_classification():
                 st.info(
                     f"Predicted classification: {prediction}"
                 )
-
 
         except Exception as e:
 
