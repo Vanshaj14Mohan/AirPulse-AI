@@ -380,7 +380,23 @@ def show_classification():
 
             st.metric(
                 "🏷 Predicted AQI Category",
-                str(prediction)
+                category
+            )
+
+            # ==================================================
+            # Convert Numeric Prediction to AQI Category
+            # ==================================================
+
+            category_mapping = {
+                0: "Good",
+                1: "Moderate",
+                2: "Unhealthy",
+                3: "Hazardous"
+            }
+
+            category = category_mapping.get(
+                int(prediction),
+                "Unknown"
             )
 
 
