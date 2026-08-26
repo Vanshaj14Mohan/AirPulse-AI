@@ -40,6 +40,7 @@ from utils import (
 
 from pages.prediction import show_prediction
 from pages.classification import show_classification
+from pages.performance import show_performance
 
 # ===========================
 # Load Dataset
@@ -476,9 +477,8 @@ elif page == "🏷 AQI Classification":
     show_classification()
 
 elif page == "📈 Model Performance":
-    st.title("📈 Model Performance")
-    st.info("Coming in Phase 6.5")
-
+    show_performance()
+   
 elif page == "ℹ About":
     st.title("ℹ About")
     st.info("Coming in Phase 6.6")
