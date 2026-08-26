@@ -468,6 +468,8 @@ elif page == "🏷 AQI Classification":
 
 elif page == "📈 Model Performance":
     show_performance()
+
+
    
 elif page == "ℹ About":
     st.title("ℹ About")
