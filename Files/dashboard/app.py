@@ -549,6 +549,54 @@ elif page == "📈 Model Performance":
         )
 
     st.markdown("---")
+
+    st.markdown("---")
+
+    # ==========================================================
+    # ACTUAL VS PREDICTED AQI
+    # ==========================================================
+
+    st.subheader("🎯 Actual vs Predicted AQI")
+
+    st.markdown("""
+    This visualization compares the actual AQI values from the
+    test dataset with the AQI values predicted by the XGBoost
+    regression model.
+    """)
+
+    fig = px.scatter(
+        x=y_test,
+        y=regression_predictions,
+        labels={
+            "x": "Actual AQI",
+            "y": "Predicted AQI"
+        },
+        title="Actual vs Predicted AQI"
+    )
+
+    # Perfect prediction reference line
+    min_value = min(y_test.min(), regression_predictions.min())
+    max_value = max(y_test.max(), regression_predictions.max())
+
+    fig.add_shape(
+        type="line",
+        x0=min_value,
+        y0=min_value,
+        x1=max_value,
+        y1=max_value,
+        line=dict(
+            dash="dash"
+        )
+    )
+
+    fig.update_layout(
+        template="plotly_white"
+    )
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
    
 elif page == "ℹ About":
     st.title("ℹ About")
