@@ -15,6 +15,9 @@ import joblib
 import plotly.express as px
 import plotly.graph_objects as go
 
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import (mean_absolute_error, mean_squared_error, r2_score)
+
 # ===========================
 # Page Configuration
 # ===========================
@@ -466,10 +469,86 @@ elif page == "🤖 AQI Prediction":
 elif page == "🏷 AQI Classification":
     show_classification()
 
+# elif page == "📈 Model Performance":
+#     show_performance()
+
 elif page == "📈 Model Performance":
-    show_performance()
+    # ==========================================================
+    # MODEL PERFORMANCE PAGE
+    # ==========================================================
+    st.title("📈 Model Performance")
+    st.markdown("""
+    ### Evaluate AirPulse AI Machine Learning Models
 
+    Compare the performance of the trained regression and
+    classification models using standard evaluation metrics.
+    """)
 
+    st.markdown("---")
+
+    # ==========================================================
+    # REGRESSION PERFORMANCE
+    # ==========================================================
+    st.subheader("📊 Regression Model Performance")
+    st.markdown("""
+    The regression model predicts the numerical Air Quality Index (AQI).
+    Performance is evaluated using MAE, RMSE and R² score.
+    """)
+
+    # Prepare features and target
+    X = processed_df.drop("aqi", axis=1)
+    y = processed_df["aqi"]
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=0.2,
+        random_state=42
+    )
+
+    # Generate predictions
+    regression_predictions = regressor.predict(X_test)
+
+    # Calculate metrics
+    mae = mean_absolute_error(
+        y_test,
+        regression_predictions
+    )
+
+    rmse = np.sqrt(
+        mean_squared_error(
+            y_test,
+            regression_predictions
+        )
+    )
+
+    r2 = r2_score(
+        y_test,
+        regression_predictions
+    )
+
+    # Display metrics
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric(
+            "MAE",
+            f"{mae:.4f}"
+        )
+
+    with col2:
+        st.metric(
+            "RMSE",
+            f"{rmse:.4f}"
+        )
+
+    with col3:
+        st.metric(
+            "R² Score",
+            f"{r2:.4f}"
+        )
+
+    st.markdown("---")
    
 elif page == "ℹ About":
     st.title("ℹ About")
