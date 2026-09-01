@@ -675,7 +675,35 @@ elif page == "📈 Model Performance":
         zero_division=0
     )
 
-    
+    # ==========================================================
+    # DISPLAY METRICS
+    # ==========================================================
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.metric(
+            "Accuracy",
+            f"{accuracy:.4f}"
+        )
+
+    with col2:
+        st.metric(
+            "Precision",
+            f"{precision:.4f}"
+        )
+
+    with col3:
+        st.metric(
+            "Recall",
+            f"{recall:.4f}"
+        )
+
+    with col4:
+        st.metric(
+            "F1 Score",
+            f"{f1:.4f}"
+        )
    
 elif page == "ℹ About":
     st.title("ℹ About")
