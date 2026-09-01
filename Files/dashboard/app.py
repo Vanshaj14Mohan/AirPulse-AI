@@ -603,6 +603,79 @@ elif page == "📈 Model Performance":
         fig,
         use_container_width=True
     )
+
+    st.markdown("---")
+
+    # ==========================================================
+    # CLASSIFICATION MODEL PERFORMANCE
+    # ==========================================================
+
+    st.subheader("🏷 Classification Model Performance")
+
+    st.markdown("""
+    The classification model predicts the pollution severity
+    category of the air quality using four AQI categories:
+    Good, Moderate, Unhealthy and Hazardous.
+    """)
+
+    # ==========================================================
+    # CREATE CLASSIFICATION TARGET
+    # ==========================================================
+
+    # Convert numerical AQI into the same four classes
+    y_class = pd.cut(
+        y,
+        bins=[-np.inf, 50, 100, 150, np.inf],
+        labels=[0, 1, 2, 3]
+    ).astype(int)
+
+    # Use the same 80/20 split
+    X_train_class, X_test_class, y_train_class, y_test_class = train_test_split(
+        X,
+        y_class,
+        test_size=0.2,
+        random_state=42
+    )
+
+    # ==========================================================
+    # CLASSIFICATION PREDICTIONS
+    # ==========================================================
+
+    classification_predictions = classifier.predict(
+        X_test_class
+    )
+
+    # ==========================================================
+    # CALCULATE CLASSIFICATION METRICS
+    # ==========================================================
+
+    accuracy = accuracy_score(
+        y_test_class,
+        classification_predictions
+    )
+
+    precision = precision_score(
+        y_test_class,
+        classification_predictions,
+        average="weighted",
+        zero_division=0
+    )
+
+    recall = recall_score(
+        y_test_class,
+        classification_predictions,
+        average="weighted",
+        zero_division=0
+    )
+
+    f1 = f1_score(
+        y_test_class,
+        classification_predictions,
+        average="weighted",
+        zero_division=0
+    )
+
+    
    
 elif page == "ℹ About":
     st.title("ℹ About")
