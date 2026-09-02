@@ -59,9 +59,7 @@ def show_performance():
 
     original_df = load_original_dataset()
     processed_df = load_processed_dataset()
-
     regressor = load_regressor()
-
     classifier = load_classifier()
 
 
@@ -70,9 +68,7 @@ def show_performance():
     # ======================================================
 
     st.subheader("🤖 Model Overview")
-
     col1, col2 = st.columns(2)
-
 
     # ------------------------------------------------------
     # Regression Model
@@ -116,9 +112,7 @@ def show_performance():
     # ======================================================
 
     st.subheader("📊 Evaluation Dataset")
-
     col1, col2, col3, col4 = st.columns(4)
-
 
     with col1:
 
@@ -187,9 +181,7 @@ def show_performance():
     # ======================================================
 
     X = processed_df.drop("aqi", axis=1)
-
     y = processed_df["aqi"]
-
 
     # ======================================================
     # Train-Test Split
@@ -208,7 +200,6 @@ def show_performance():
     # ======================================================
 
     y_pred = regressor.predict(X_test)
-
 
     # ======================================================
     # Calculate Evaluation Metrics
@@ -230,7 +221,6 @@ def show_performance():
         y_test,
         y_pred
     )
-
 
     # ======================================================
     # Display Metrics
