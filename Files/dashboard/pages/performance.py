@@ -179,6 +179,96 @@ def show_performance():
     """)
 
 
-    st.info(
-        "🚀 Phase 6.5.1 - Model Performance Setup Completed"
+    # st.info(
+    #     "🚀 Phase 6.5.1 - Model Performance Setup Completed"
+    # )
+    # ======================================================
+    # REGRESSION MODEL PERFORMANCE
+    # ======================================================
+
+    st.subheader("📊 Regression Model Performance")
+
+    st.markdown("""
+    The regression model predicts the numerical Air Quality Index (AQI).
+    Performance is evaluated using MAE, RMSE and R² score.
+    """)
+
+
+    # ======================================================
+    # Prepare Features and Target
+    # ======================================================
+
+    X = processed_df.drop("aqi", axis=1)
+
+    y = processed_df["aqi"]
+
+
+    # ======================================================
+    # Train-Test Split
+    # ======================================================
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=0.2,
+        random_state=42
     )
+
+
+    # ======================================================
+    # Make Predictions
+    # ======================================================
+
+    y_pred = regressor.predict(X_test)
+
+
+    # ======================================================
+    # Calculate Evaluation Metrics
+    # ======================================================
+
+    mae = mean_absolute_error(
+        y_test,
+        y_pred
+    )
+
+    rmse = np.sqrt(
+        mean_squared_error(
+            y_test,
+            y_pred
+        )
+    )
+
+    r2 = r2_score(
+        y_test,
+        y_pred
+    )
+
+
+    # ======================================================
+    # Display Metrics
+    # ======================================================
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+
+        st.metric(
+            "MAE",
+            f"{mae:.4f}"
+        )
+
+
+    with col2:
+
+        st.metric(
+            "RMSE",
+            f"{rmse:.4f}"
+        )
+
+
+    with col3:
+
+        st.metric(
+            "R² Score",
+            f"{r2:.4f}"
+        )
