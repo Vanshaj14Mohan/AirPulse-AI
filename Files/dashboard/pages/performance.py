@@ -12,12 +12,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
-# from utils import (
-#     load_original_dataset,
-#     load_regressor,
-#     load_classifier
-# )
-
 from utils import (
     load_original_dataset,
     load_processed_dataset,
@@ -62,12 +56,6 @@ def show_performance():
     # ======================================================
     # Load Data & Models
     # ======================================================
-
-    # original_df = load_original_dataset()
-
-    # regressor = load_regressor()
-
-    # classifier = load_classifier()
 
     original_df = load_original_dataset()
     processed_df = load_processed_dataset()
