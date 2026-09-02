@@ -265,7 +265,6 @@ def show_performance():
             f"{rmse:.4f}"
         )
 
-
     with col3:
 
         st.metric(
