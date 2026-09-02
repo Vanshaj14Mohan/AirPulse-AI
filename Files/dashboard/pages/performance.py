@@ -63,7 +63,14 @@ def show_performance():
     # Load Data & Models
     # ======================================================
 
+    # original_df = load_original_dataset()
+
+    # regressor = load_regressor()
+
+    # classifier = load_classifier()
+
     original_df = load_original_dataset()
+    processed_df = load_processed_dataset()
 
     regressor = load_regressor()
 
