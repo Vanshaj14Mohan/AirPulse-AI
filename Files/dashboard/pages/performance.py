@@ -235,7 +235,6 @@ def show_performance():
             f"{mae:.4f}"
         )
 
-
     with col2:
 
         st.metric(
