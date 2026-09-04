@@ -249,7 +249,7 @@ def show_performance():
             f"{r2:.4f}"
         )
 
-        # ======================================================
+    # ======================================================
     # CLASSIFICATION MODEL PERFORMANCE
     # ======================================================
 
@@ -269,28 +269,21 @@ def show_performance():
     # ======================================================
 
     def categorize_aqi(aqi):
-
         if aqi <= 50:
             return 0
-
         elif aqi <= 100:
             return 1
-
         elif aqi <= 150:
             return 2
-
         else:
             return 3
-
 
     # ======================================================
     # Prepare Features and Target
     # ======================================================
 
     X_class = processed_df.drop("aqi", axis=1)
-
     y_class = processed_df["aqi"].apply(categorize_aqi)
-
 
     # ======================================================
     # Train-Test Split
@@ -309,7 +302,6 @@ def show_performance():
     # ======================================================
 
     y_pred_class = classifier.predict(X_test_class)
-
 
     # ======================================================
     # Calculate Classification Metrics
@@ -338,7 +330,6 @@ def show_performance():
         average="weighted"
     )
 
-
     # ======================================================
     # Display Classification Metrics
     # ======================================================
@@ -352,7 +343,6 @@ def show_performance():
             f"{accuracy:.4f}"
         )
 
-
     with col2:
 
         st.metric(
@@ -360,14 +350,12 @@ def show_performance():
             f"{precision:.4f}"
         )
 
-
     with col3:
 
         st.metric(
             "Recall",
             f"{recall:.4f}"
         )
-
 
     with col4:
 
