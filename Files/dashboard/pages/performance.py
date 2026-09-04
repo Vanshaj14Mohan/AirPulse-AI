@@ -160,7 +160,6 @@ def show_performance():
     metrics for both the AQI regression and classification models.
     """)
 
-
     # st.info(
     #     "🚀 Phase 6.5.1 - Model Performance Setup Completed"
     # )
@@ -174,7 +173,6 @@ def show_performance():
     The regression model predicts the numerical Air Quality Index (AQI).
     Performance is evaluated using MAE, RMSE and R² score.
     """)
-
 
     # ======================================================
     # Prepare Features and Target
@@ -229,21 +227,18 @@ def show_performance():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-
         st.metric(
             "MAE",
             f"{mae:.4f}"
         )
 
     with col2:
-
         st.metric(
             "RMSE",
             f"{rmse:.4f}"
         )
 
     with col3:
-
         st.metric(
             "R² Score",
             f"{r2:.4f}"
@@ -254,7 +249,7 @@ def show_performance():
     # ======================================================
 
     st.markdown("---")
-
+    
     st.subheader("🏷 Classification Model Performance")
 
     st.markdown("""
@@ -262,7 +257,6 @@ def show_performance():
     category of the air quality using four AQI categories:
     Good, Moderate, Unhealthy and Hazardous.
     """)
-
 
     # ======================================================
     # Create AQI Categories
@@ -295,7 +289,6 @@ def show_performance():
         test_size=0.2,
         random_state=42
     )
-
 
     # ======================================================
     # Make Predictions
@@ -337,28 +330,24 @@ def show_performance():
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-
         st.metric(
             "Accuracy",
             f"{accuracy:.4f}"
         )
 
     with col2:
-
         st.metric(
             "Precision",
             f"{precision:.4f}"
         )
 
     with col3:
-
         st.metric(
             "Recall",
             f"{recall:.4f}"
         )
 
     with col4:
-
         st.metric(
             "F1 Score",
             f"{f1:.4f}"
