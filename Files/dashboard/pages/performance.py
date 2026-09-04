@@ -248,3 +248,130 @@ def show_performance():
             "R² Score",
             f"{r2:.4f}"
         )
+
+        # ======================================================
+    # CLASSIFICATION MODEL PERFORMANCE
+    # ======================================================
+
+    st.markdown("---")
+
+    st.subheader("🏷 Classification Model Performance")
+
+    st.markdown("""
+    The classification model predicts the pollution severity
+    category of the air quality using four AQI categories:
+    Good, Moderate, Unhealthy and Hazardous.
+    """)
+
+
+    # ======================================================
+    # Create AQI Categories
+    # ======================================================
+
+    def categorize_aqi(aqi):
+
+        if aqi <= 50:
+            return 0
+
+        elif aqi <= 100:
+            return 1
+
+        elif aqi <= 150:
+            return 2
+
+        else:
+            return 3
+
+
+    # ======================================================
+    # Prepare Features and Target
+    # ======================================================
+
+    X_class = processed_df.drop("aqi", axis=1)
+
+    y_class = processed_df["aqi"].apply(categorize_aqi)
+
+
+    # ======================================================
+    # Train-Test Split
+    # ======================================================
+
+    X_train_class, X_test_class, y_train_class, y_test_class = train_test_split(
+        X_class,
+        y_class,
+        test_size=0.2,
+        random_state=42
+    )
+
+
+    # ======================================================
+    # Make Predictions
+    # ======================================================
+
+    y_pred_class = classifier.predict(X_test_class)
+
+
+    # ======================================================
+    # Calculate Classification Metrics
+    # ======================================================
+
+    accuracy = accuracy_score(
+        y_test_class,
+        y_pred_class
+    )
+
+    precision = precision_score(
+        y_test_class,
+        y_pred_class,
+        average="weighted"
+    )
+
+    recall = recall_score(
+        y_test_class,
+        y_pred_class,
+        average="weighted"
+    )
+
+    f1 = f1_score(
+        y_test_class,
+        y_pred_class,
+        average="weighted"
+    )
+
+
+    # ======================================================
+    # Display Classification Metrics
+    # ======================================================
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+
+        st.metric(
+            "Accuracy",
+            f"{accuracy:.4f}"
+        )
+
+
+    with col2:
+
+        st.metric(
+            "Precision",
+            f"{precision:.4f}"
+        )
+
+
+    with col3:
+
+        st.metric(
+            "Recall",
+            f"{recall:.4f}"
+        )
+
+
+    with col4:
+
+        st.metric(
+            "F1 Score",
+            f"{f1:.4f}"
+        )
