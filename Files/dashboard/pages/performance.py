@@ -343,3 +343,79 @@ def show_performance():
             "F1 Score",
             f"{f1:.4f}"
         )
+
+    # ======================================================
+    # CONFUSION MATRIX
+    # ======================================================
+
+    st.markdown("---")
+
+    st.subheader("🔍 Confusion Matrix")
+
+    st.markdown("""
+    The confusion matrix shows how accurately the classification
+    model predicts each AQI category and where misclassifications occur.
+    """)
+
+
+    # ======================================================
+    # Calculate Confusion Matrix
+    # ======================================================
+
+    cm = confusion_matrix(
+        y_test_class,
+        y_pred_class
+    )
+
+
+    # ======================================================
+    # AQI Category Labels
+    # ======================================================
+
+    category_labels = [
+        "Good",
+        "Moderate",
+        "Unhealthy",
+        "Hazardous"
+    ]
+
+
+    # ======================================================
+    # Create Confusion Matrix DataFrame
+    # ======================================================
+
+    cm_df = pd.DataFrame(
+        cm,
+        index=category_labels,
+        columns=category_labels
+    )
+
+
+    # ======================================================
+    # Create Heatmap
+    # ======================================================
+
+    fig = px.imshow(
+        cm_df,
+        text_auto=True,
+        labels=dict(
+            x="Predicted Category",
+            y="Actual Category",
+            color="Number of Samples"
+        ),
+        x=category_labels,
+        y=category_labels,
+        title="AQI Classification Confusion Matrix"
+    )
+
+
+    fig.update_layout(
+        xaxis_title="Predicted Category",
+        yaxis_title="Actual Category"
+    )
+
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
