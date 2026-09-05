@@ -52,7 +52,6 @@ def show_performance():
 
     st.markdown("---")
 
-
     # ======================================================
     # Load Data & Models
     # ======================================================
@@ -61,7 +60,6 @@ def show_performance():
     processed_df = load_processed_dataset()
     regressor = load_regressor()
     classifier = load_classifier()
-
 
     # ======================================================
     # Model Overview
@@ -75,7 +73,6 @@ def show_performance():
     # ------------------------------------------------------
 
     with col1:
-
         st.markdown("### 📈 AQI Regression")
 
         st.info("""
@@ -103,9 +100,7 @@ def show_performance():
         **Task:** Classification
         """)
 
-
     st.markdown("---")
-
 
     # ======================================================
     # Dataset Information
@@ -121,7 +116,6 @@ def show_performance():
             original_df["country"].nunique()
         )
 
-
     with col2:
 
         st.metric(
@@ -129,14 +123,12 @@ def show_performance():
             original_df["city"].nunique()
         )
 
-
     with col3:
 
         st.metric(
             "📄 Records",
             f"{len(original_df):,}"
         )
-
 
     with col4:
 
@@ -147,7 +139,6 @@ def show_performance():
 
 
     st.markdown("---")
-
 
     # ======================================================
     # Evaluation Section
