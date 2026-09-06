@@ -41,7 +41,6 @@ def show_performance():
     # ======================================================
 
     st.title("📈 Model Performance")
-
     st.markdown("""
     ### Evaluate AirPulse AI Machine Learning Models
 
@@ -83,13 +82,11 @@ def show_performance():
         **Task:** Regression
         """)
 
-
     # ------------------------------------------------------
     # Classification Model
     # ------------------------------------------------------
 
     with col2:
-
         st.markdown("### 🏷 AQI Classification")
 
         st.info("""
@@ -182,7 +179,6 @@ def show_performance():
         test_size=0.2,
         random_state=42
     )
-
 
     # ======================================================
     # Make Predictions
@@ -356,7 +352,6 @@ def show_performance():
     The confusion matrix shows how accurately the classification
     model predicts each AQI category and where misclassifications occur.
     """)
-
 
     # ======================================================
     # Calculate Confusion Matrix
