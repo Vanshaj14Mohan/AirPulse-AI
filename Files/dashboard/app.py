@@ -239,7 +239,6 @@ if page == "🏠 Home":
         st.write("### Statistical Summary")
         st.dataframe(original_df.describe())
 
-
 # ==========================================================
 # DASHBOARD PAGE
 # ==========================================================
