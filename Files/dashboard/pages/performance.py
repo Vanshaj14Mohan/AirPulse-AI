@@ -107,28 +107,24 @@ def show_performance():
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-
         st.metric(
             "🌍 Countries",
             original_df["country"].nunique()
         )
 
     with col2:
-
         st.metric(
             "🏙 Cities",
             original_df["city"].nunique()
         )
 
     with col3:
-
         st.metric(
             "📄 Records",
             f"{len(original_df):,}"
         )
 
     with col4:
-
         st.metric(
             "🌫 Average AQI",
             round(original_df["aqi"].mean(), 2)
@@ -374,7 +370,6 @@ def show_performance():
         "Hazardous"
     ]
 
-
     # ======================================================
     # Create Confusion Matrix DataFrame
     # ======================================================
@@ -402,12 +397,10 @@ def show_performance():
         title="AQI Classification Confusion Matrix"
     )
 
-
     fig.update_layout(
         xaxis_title="Predicted Category",
         yaxis_title="Actual Category"
     )
-
 
     st.plotly_chart(
         fig,
