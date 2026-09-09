@@ -52,6 +52,7 @@ from utils import (
 from pages.prediction import show_prediction
 from pages.classification import show_classification
 from pages.performance import show_performance
+from pages.about import show_about
 
 # ===========================
 # Load Dataset
@@ -480,5 +481,4 @@ elif page == "📈 Model Performance":
     show_performance()
 
 elif page == "ℹ About":
-    st.title("ℹ About")
-    st.info("Coming in Phase 6.6")
+    show_about()

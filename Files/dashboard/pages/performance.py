@@ -440,6 +440,11 @@ def show_performance():
         report
     ).transpose()
 
+    # Fix Accuracy row formatting
+    report_df.loc["accuracy", "precision"] = np.nan
+    report_df.loc["accuracy", "recall"] = np.nan
+    report_df.loc["accuracy", "support"] = len(y_test_class)
+
     # ======================================================
     # Display Classification Report
     # ======================================================
