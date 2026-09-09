@@ -28,7 +28,8 @@ from sklearn.metrics import (
     precision_score,
     recall_score,
     f1_score,
-    confusion_matrix
+    confusion_matrix,
+    classification_report
 )
 
 # ==========================================================
@@ -404,5 +405,46 @@ def show_performance():
 
     st.plotly_chart(
         fig,
+        use_container_width=True
+    )
+
+    # ======================================================
+    # CLASSIFICATION REPORT
+    # ======================================================
+
+    st.markdown("---")
+
+    st.subheader("📋 Classification Report")
+
+    st.markdown("""
+    The classification report provides a detailed breakdown of
+    precision, recall and F1 score for each AQI category.
+    """)
+
+    # ======================================================
+    # Generate Classification Report
+    # ======================================================
+
+    report = classification_report(
+        y_test_class,
+        y_pred_class,
+        target_names=category_labels,
+        output_dict=True
+    )
+
+    # ======================================================
+    # Convert Report to DataFrame
+    # ======================================================
+
+    report_df = pd.DataFrame(
+        report
+    ).transpose()
+
+    # ======================================================
+    # Display Classification Report
+    # ======================================================
+
+    st.dataframe(
+        report_df,
         use_container_width=True
     )
