@@ -1,12 +1,4 @@
-# import streamlit as st
-
-# def show_about():
-
-#     st.title("ℹ About")
-
-
 import streamlit as st
-
 
 def show_about():
 
@@ -27,7 +19,6 @@ def show_about():
 
     st.divider()
 
-
     # ======================================================
     # Project Overview
     # ======================================================
@@ -47,7 +38,6 @@ def show_about():
     )
 
     st.divider()
-
 
     # ======================================================
     # Key Features
@@ -103,7 +93,6 @@ def show_about():
         )
 
     st.divider()
-
 
     # ======================================================
     # Machine Learning Models
