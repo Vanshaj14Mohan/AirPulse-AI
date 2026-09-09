@@ -1,11 +1,9 @@
 import streamlit as st
 
 def show_about():
-
     # ======================================================
     # Page Title
     # ======================================================
-
     st.title("ℹ About AirPulse AI")
 
     st.write(
