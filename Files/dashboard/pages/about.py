@@ -146,6 +146,34 @@ def show_about():
     st.divider()
 
     # ======================================================
+    # Project Highlights
+    # ======================================================
+
+    st.header("🚀 Project Highlights")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric(
+            "Regression Model",
+            "XGBoost Regressor"
+        )
+
+    with col2:
+        st.metric(
+            "Classification Accuracy",
+            "99.58%"
+        )
+
+    with col3:
+        st.metric(
+            "AQI Categories",
+            "4"
+        )
+
+    st.divider()
+
+    # ======================================================
     # Project Goal
     # ======================================================
 
