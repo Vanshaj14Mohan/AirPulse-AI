@@ -482,5 +482,3 @@ elif page == "📈 Model Performance":
 
 elif page == "ℹ About":
     show_about()
-
-# The End
