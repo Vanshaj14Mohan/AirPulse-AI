@@ -25,7 +25,6 @@ def load_original_dataset():
     df = pd.read_csv("../data/globalAirQuality.csv")
     return df
 
-
 # ===========================
 # Load Processed Dataset
 # ===========================
@@ -34,7 +33,6 @@ def load_original_dataset():
 def load_processed_dataset():
     df = pd.read_csv("../data/processed_air_quality.csv")
     return df
-
 
 # ===========================
 # Load Dashboard Dataset
@@ -60,7 +58,6 @@ def load_regressor():
     )
 
     return regressor
-
 
 # ===========================
 # Load Classification Model
@@ -92,7 +89,6 @@ def get_aqi_category(aqi):
     else:
         return "Hazardous"
 
-
 # ===========================
 # AQI Color
 # ===========================
@@ -107,7 +103,6 @@ def get_aqi_color(aqi):
     else:
         return "darkred"
 
-
 # ==========================================================
 # DATASET INFORMATION
 # ==========================================================
@@ -120,7 +115,6 @@ def dataset_summary(df):
         "Cities": df["city"].nunique(),
         "Average AQI": round(df["aqi"].mean(), 2)
     }
-
 
 # ==========================================================
 # FEATURE LIST
@@ -173,7 +167,6 @@ def load_city_encoder():
     )
 
     return encoder
-
 
 # ===========================
 # Load Scaler
