@@ -26,7 +26,6 @@ def show_dashboard():
 
     st.markdown("---")
 
-
     # ======================================================
     # Load Dashboard Dataset
     # ======================================================
@@ -39,9 +38,7 @@ def show_dashboard():
     # ======================================================
 
     st.subheader("🎛 Dashboard Filters")
-
     col1, col2, col3 = st.columns(3)
-
 
     # ----------------------------
     # Country Filter
@@ -57,7 +54,6 @@ def show_dashboard():
             "🌍 Select Country",
             ["All"] + list(countries)
         )
-
 
     # ----------------------------
     # City Filter
@@ -92,7 +88,6 @@ def show_dashboard():
     with col3:
 
         if "month" in dashboard_df.columns:
-
             months = sorted(
                 dashboard_df["month"].unique()
             )
@@ -103,16 +98,12 @@ def show_dashboard():
             )
 
         else:
-
             selected_month = "All"
-
             st.warning(
                 "Month column not available."
             )
 
-
     st.markdown("---")
-
 
     # ======================================================
     # Apply Filters
@@ -157,11 +148,9 @@ def show_dashboard():
     # ======================================================
 
     st.subheader("📈 Dashboard Overview")
-
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-
         st.metric(
             "🌍 Countries",
             filtered_df["country"].nunique()
@@ -217,9 +206,7 @@ def show_dashboard():
         use_container_width=True
     )
 
-
     st.markdown("---")
-
 
     # ======================================================
     # Top 10 Most Polluted Cities
