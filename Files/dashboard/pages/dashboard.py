@@ -1,9 +1,3 @@
-# import streamlit as st
-
-# def show_dashboard():
-
-#     st.title("📊 Dashboard")
-
 import streamlit as st
 import plotly.express as px
 
@@ -243,9 +237,7 @@ def show_dashboard():
         use_container_width=True
     )
 
-
     st.markdown("---")
-
 
     # ======================================================
     # Country-wise AQI
