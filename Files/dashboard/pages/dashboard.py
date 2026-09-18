@@ -26,7 +26,6 @@ def show_dashboard():
 
     dashboard_df = load_dashboard_dataset()
 
-
     # ======================================================
     # Dashboard Filters
     # ======================================================
@@ -73,7 +72,6 @@ def show_dashboard():
             "🏙 Select City",
             ["All"] + list(cities)
         )
-
 
     # ----------------------------
     # Month Filter
@@ -123,7 +121,6 @@ def show_dashboard():
             filtered_df["month"] == selected_month
         ]
 
-
     # ======================================================
     # No Data Check
     # ======================================================
@@ -135,7 +132,6 @@ def show_dashboard():
         )
 
         return
-
 
     # ======================================================
     # KPI Cards
@@ -173,7 +169,6 @@ def show_dashboard():
 
 
     st.markdown("---")
-
 
     # ======================================================
     # AQI Distribution
