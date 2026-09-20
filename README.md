@@ -293,7 +293,7 @@ AirPulse AI/
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Vanshaj14Mohan/AirPulse-AI.git>
 ```
 
 Navigate into the project directory:
