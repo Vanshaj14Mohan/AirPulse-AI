@@ -49,11 +49,11 @@ from utils import (
     load_classifier
 )
 
-from pages.dashboard import show_dashboard
-from pages.prediction import show_prediction
-from pages.classification import show_classification
-from pages.performance import show_performance
-from pages.about import show_about
+from app_pages.dashboard import show_dashboard
+from app_pages.prediction import show_prediction
+from app_pages.classification import show_classification
+from app_pages.performance import show_performance
+from app_pages.about import show_about
 
 # ===========================
 # Load Dataset
