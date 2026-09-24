@@ -20,7 +20,8 @@ from utils import (
     load_country_encoder,
     load_city_encoder,
     load_scaler,
-    get_aqi_category
+    get_aqi_category,
+    COUNTRY_MAP
 )
 
 # ==========================================================
@@ -70,7 +71,8 @@ def show_prediction():
         )
         selected_country = st.selectbox(
             "🌍 Select Country",
-            countries
+            countries,
+            format_func=lambda x: COUNTRY_MAP.get(x, x)
         )
 
     # ===========================

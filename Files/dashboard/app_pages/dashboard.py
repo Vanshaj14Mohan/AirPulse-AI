@@ -80,13 +80,19 @@ def show_dashboard():
     with col3:
 
         if "month" in dashboard_df.columns:
+            import calendar
             months = sorted(
                 dashboard_df["month"].unique()
             )
 
+            month_mapping = {"All": "All"}
+            for m in months:
+                month_mapping[m] = calendar.month_name[int(m)]
+
             selected_month = st.selectbox(
                 "📅 Select Month",
-                ["All"] + list(months)
+                ["All"] + list(months),
+                format_func=lambda x: month_mapping.get(x, x)
             )
 
         else:

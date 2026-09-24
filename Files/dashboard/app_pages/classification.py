@@ -16,7 +16,8 @@ from utils import (
     load_classifier,
     load_country_encoder,
     load_city_encoder,
-    load_scaler
+    load_scaler,
+    COUNTRY_MAP
 )
 
 def show_classification():
@@ -67,7 +68,8 @@ def show_classification():
 
         selected_country = st.selectbox(
             "🌍 Select Country",
-            countries
+            countries,
+            format_func=lambda x: COUNTRY_MAP.get(x, x)
         )
 
     # ======================================================
