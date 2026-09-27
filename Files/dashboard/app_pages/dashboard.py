@@ -173,7 +173,6 @@ def show_dashboard():
             round(filtered_df["aqi"].mean(), 2)
         )
 
-
     st.markdown("---")
 
     # ======================================================
