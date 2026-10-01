@@ -9,8 +9,11 @@
 # ===========================
 
 import streamlit as st
+import os
 import pandas as pd
 import joblib
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 COUNTRY_MAP = {
     'US': 'United States', 'GB': 'United Kingdom', 'FR': 'France', 'DE': 'Germany', 
@@ -35,7 +38,7 @@ COUNTRY_MAP = {
 
 @st.cache_data
 def load_original_dataset():
-    df = pd.read_csv("../data/globalAirQuality.csv")
+    df = pd.read_csv(os.path.join(BASE_DIR, "data", "globalAirQuality.csv"))
     return df
 
 # ===========================
@@ -44,7 +47,7 @@ def load_original_dataset():
 
 @st.cache_data
 def load_processed_dataset():
-    df = pd.read_csv("../data/processed_air_quality.csv")
+    df = pd.read_csv(os.path.join(BASE_DIR, "data", "processed_air_quality.csv"))
     return df
 
 # ===========================
@@ -53,7 +56,7 @@ def load_processed_dataset():
 
 @st.cache_data
 def load_dashboard_dataset():
-    df = pd.read_csv("../data/dashboard_data.csv")
+    df = pd.read_csv(os.path.join(BASE_DIR, "data", "dashboard_data.csv"))
     return df
 
 # ==========================================================
@@ -67,7 +70,7 @@ def load_dashboard_dataset():
 @st.cache_resource
 def load_regressor():
     regressor = joblib.load(
-        "../models/xgboost_regressor.pkl"
+        os.path.join(BASE_DIR, "models", "xgboost_regressor.pkl")
     )
 
     return regressor
@@ -79,7 +82,7 @@ def load_regressor():
 @st.cache_resource
 def load_classifier():
     classifier = joblib.load(
-        "../models/xgboost_classifier.pkl"
+        os.path.join(BASE_DIR, "models", "xgboost_classifier.pkl")
     )
 
     return classifier
@@ -164,7 +167,7 @@ def get_feature_columns():
 @st.cache_resource
 def load_country_encoder():
     encoder = joblib.load(
-        "../models/country_encoder.pkl"
+        os.path.join(BASE_DIR, "models", "country_encoder.pkl")
     )
 
     return encoder
@@ -176,7 +179,7 @@ def load_country_encoder():
 @st.cache_resource
 def load_city_encoder():
     encoder = joblib.load(
-        "../models/city_encoder.pkl"
+        os.path.join(BASE_DIR, "models", "city_encoder.pkl")
     )
 
     return encoder
@@ -188,7 +191,7 @@ def load_city_encoder():
 @st.cache_resource
 def load_scaler():
     scaler = joblib.load(
-        "../models/scaler.pkl"
+        os.path.join(BASE_DIR, "models", "scaler.pkl")
     )
 
     return scaler
