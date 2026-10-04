@@ -55,7 +55,6 @@ def show_classification():
 
     col1, col2 = st.columns(2)
 
-
     # ======================================================
     # Country Selection
     # ======================================================
@@ -140,7 +139,6 @@ def show_classification():
             step=0.1
         )
 
-
     # NO2
     with col3:
 
@@ -157,7 +155,6 @@ def show_classification():
 
     col1, col2, col3 = st.columns(3)
 
-
     # SO2
     with col1:
 
@@ -168,7 +165,6 @@ def show_classification():
             step=0.1
         )
 
-
     # O3
     with col2:
 
@@ -178,7 +174,6 @@ def show_classification():
             value=30.0,
             step=0.1
         )
-
 
     # CO
     with col3:
@@ -200,7 +195,6 @@ def show_classification():
 
     col1, col2, col3 = st.columns(3)
 
-
     # Temperature
     with col1:
 
@@ -209,7 +203,6 @@ def show_classification():
             value=20.0,
             step=0.1
         )
-
 
     # Humidity
     with col2:
@@ -222,7 +215,6 @@ def show_classification():
             step=0.1
         )
 
-
     # Wind Speed
     with col3:
 
@@ -233,7 +225,6 @@ def show_classification():
             step=0.1
         )
 
-
     st.markdown("---")
 
     # ======================================================
@@ -243,7 +234,6 @@ def show_classification():
     st.subheader("🕒 Time Information")
 
     col1, col2, col3 = st.columns(3)
-
 
     # Hour
     with col1:
