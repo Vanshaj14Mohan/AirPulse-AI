@@ -256,7 +256,6 @@ def show_classification():
             value=15
         )
 
-
     # Month
     with col3:
 
@@ -266,7 +265,6 @@ def show_classification():
             max_value=12,
             value=6
         )
-
 
     st.markdown("---")
 
@@ -279,7 +277,6 @@ def show_classification():
         type="primary",
         use_container_width=True
     )
-
 
     # ======================================================
     # AQI CLASSIFICATION
