@@ -52,7 +52,7 @@ def show_classification():
     # ======================================================
 
     st.subheader("📍 Location Information")
-
+    
     col1, col2 = st.columns(2)
 
     # ======================================================
@@ -60,7 +60,6 @@ def show_classification():
     # ======================================================
 
     with col1:
-
         countries = sorted(
             original_df["country"].dropna().unique()
         )
@@ -113,7 +112,6 @@ def show_classification():
     st.subheader("🌫 Pollution Parameters")
     col1, col2, col3 = st.columns(3)
 
-
     # PM2.5
     with col1:
         pm25 = st.number_input(
@@ -122,7 +120,6 @@ def show_classification():
             value=30.0,
             step=0.1
         )
-
 
     # PM10
     with col2:
@@ -222,7 +219,6 @@ def show_classification():
 
     # Hour
     with col1:
-
         hour = st.slider(
             "🕐 Hour",
             min_value=0,
@@ -232,7 +228,6 @@ def show_classification():
 
     # Day
     with col2:
-
         day = st.slider(
             "📅 Day",
             min_value=1,
@@ -242,7 +237,6 @@ def show_classification():
 
     # Month
     with col3:
-
         month = st.slider(
             "🗓 Month",
             min_value=1,
