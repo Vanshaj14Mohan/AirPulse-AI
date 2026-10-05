@@ -76,7 +76,6 @@ def show_classification():
     # ======================================================
 
     with col2:
-
         cities = sorted(
             original_df[
                 original_df["country"] == selected_country
@@ -98,9 +97,7 @@ def show_classification():
     ]
 
     latitude = location_data["latitude"].iloc[0]
-
     longitude = location_data["longitude"].iloc[0]
-
 
     st.info(
         f"📍 Coordinates: Latitude = {latitude}, "
@@ -114,13 +111,11 @@ def show_classification():
     # ======================================================
 
     st.subheader("🌫 Pollution Parameters")
-
     col1, col2, col3 = st.columns(3)
 
 
     # PM2.5
     with col1:
-
         pm25 = st.number_input(
             "PM2.5",
             min_value=0.0,
@@ -131,7 +126,6 @@ def show_classification():
 
     # PM10
     with col2:
-
         pm10 = st.number_input(
             "PM10",
             min_value=0.0,
@@ -141,7 +135,6 @@ def show_classification():
 
     # NO2
     with col3:
-
         no2 = st.number_input(
             "NO₂",
             min_value=0.0,
@@ -157,7 +150,6 @@ def show_classification():
 
     # SO2
     with col1:
-
         so2 = st.number_input(
             "SO₂",
             min_value=0.0,
@@ -167,7 +159,6 @@ def show_classification():
 
     # O3
     with col2:
-
         o3 = st.number_input(
             "O₃",
             min_value=0.0,
@@ -177,7 +168,6 @@ def show_classification():
 
     # CO
     with col3:
-
         co = st.number_input(
             "CO",
             min_value=0.0,
@@ -192,12 +182,10 @@ def show_classification():
     # ======================================================
 
     st.subheader("🌤 Weather Parameters")
-
     col1, col2, col3 = st.columns(3)
 
     # Temperature
     with col1:
-
         temperature = st.number_input(
             "🌡 Temperature (°C)",
             value=20.0,
@@ -206,7 +194,6 @@ def show_classification():
 
     # Humidity
     with col2:
-
         humidity = st.number_input(
             "💧 Humidity (%)",
             min_value=0.0,
@@ -217,7 +204,6 @@ def show_classification():
 
     # Wind Speed
     with col3:
-
         wind_speed = st.number_input(
             "💨 Wind Speed",
             min_value=0.0,
@@ -232,7 +218,6 @@ def show_classification():
     # ======================================================
 
     st.subheader("🕒 Time Information")
-
     col1, col2, col3 = st.columns(3)
 
     # Hour
@@ -244,7 +229,6 @@ def show_classification():
             max_value=23,
             value=12
         )
-
 
     # Day
     with col2:
@@ -283,9 +267,7 @@ def show_classification():
     # ======================================================
 
     if classify_button:
-
         try:
-
             # ==================================================
             # Encode Country and City
             # ==================================================
@@ -339,7 +321,6 @@ def show_classification():
 
             })
 
-
             # ==================================================
             # Apply Same Scaling Used During Training
             # ==================================================
@@ -372,7 +353,6 @@ def show_classification():
                 "Unknown"
             )
 
-
             # ==================================================
             # Display Classification Result
             # ==================================================
@@ -385,7 +365,6 @@ def show_classification():
                 "🏷 Predicted AQI Category",
                 category
             )
-
 
             # ==================================================
             # Category Message
