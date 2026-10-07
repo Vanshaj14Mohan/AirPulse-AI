@@ -44,7 +44,6 @@ def show_about():
     st.header("✨ Key Features")
 
     col1, col2 = st.columns(2)
-
     with col1:
         st.subheader("📊 Data Analysis")
 
@@ -68,7 +67,6 @@ def show_about():
 
     with col2:
         st.subheader("🏷 AQI Classification")
-
         st.write(
             """
             - Classify air quality into categories
@@ -80,7 +78,6 @@ def show_about():
         )
 
         st.subheader("📈 Model Performance")
-
         st.write(
             """
             - Regression evaluation metrics
