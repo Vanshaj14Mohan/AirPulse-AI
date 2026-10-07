@@ -112,25 +112,21 @@ def show_performance():
             "🌍 Countries",
             original_df["country"].nunique()
         )
-
     with col2:
         st.metric(
             "🏙 Cities",
             original_df["city"].nunique()
         )
-
     with col3:
         st.metric(
             "📄 Records",
             f"{len(original_df):,}"
         )
-
     with col4:
         st.metric(
             "🌫 Average AQI",
             round(original_df["aqi"].mean(), 2)
         )
-
 
     st.markdown("---")
 
@@ -191,14 +187,12 @@ def show_performance():
         y_test,
         y_pred
     )
-
     rmse = np.sqrt(
         mean_squared_error(
             y_test,
             y_pred
         )
     )
-
     r2 = r2_score(
         y_test,
         y_pred
@@ -215,13 +209,11 @@ def show_performance():
             "MAE",
             f"{mae:.4f}"
         )
-
     with col2:
         st.metric(
             "RMSE",
             f"{rmse:.4f}"
         )
-
     with col3:
         st.metric(
             "R² Score",
@@ -318,19 +310,16 @@ def show_performance():
             "Accuracy",
             f"{accuracy:.4f}"
         )
-
     with col2:
         st.metric(
             "Precision",
             f"{precision:.4f}"
         )
-
     with col3:
         st.metric(
             "Recall",
             f"{recall:.4f}"
         )
-
     with col4:
         st.metric(
             "F1 Score",
