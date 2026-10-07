@@ -96,7 +96,6 @@ def show_about():
     st.header("🤖 Machine Learning Models")
 
     col1, col2 = st.columns(2)
-
     with col1:
         st.subheader("Regression Model")
 
@@ -110,7 +109,6 @@ def show_about():
 
     with col2:
         st.subheader("Classification Model")
-
         st.write(
             """
             **XGBoost Classifier**
@@ -127,7 +125,6 @@ def show_about():
     # ======================================================
 
     st.header("🛠 Technologies Used")
-
     st.write(
         """
         - Python
@@ -155,13 +152,11 @@ def show_about():
             "Regression Model",
             "XGBoost Regressor"
         )
-
     with col2:
         st.metric(
             "Classification Accuracy",
             "99.58%"
         )
-
     with col3:
         st.metric(
             "AQI Categories",
@@ -175,7 +170,6 @@ def show_about():
     # ======================================================
 
     st.header("🎯 Project Goal")
-
     st.write(
         """
         The goal of AirPulse AI is to demonstrate how machine learning
