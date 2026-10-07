@@ -377,7 +377,6 @@ def show_prediction():
                     "🌫 Predicted AQI",
                     f"{predicted_aqi:.2f}"
                 )
-
             with col2:
                 st.metric(
                     "🏷 AQI Category",
