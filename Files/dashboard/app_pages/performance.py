@@ -89,7 +89,6 @@ def show_performance():
 
     with col2:
         st.markdown("### 🏷 AQI Classification")
-
         st.info("""
         **Model:** XGBoost Classifier
 
