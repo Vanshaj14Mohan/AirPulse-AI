@@ -72,7 +72,6 @@ def load_regressor():
     regressor = joblib.load(
         os.path.join(BASE_DIR, "models", "xgboost_regressor.pkl")
     )
-
     return regressor
 
 # ===========================
@@ -84,7 +83,6 @@ def load_classifier():
     classifier = joblib.load(
         os.path.join(BASE_DIR, "models", "xgboost_classifier.pkl")
     )
-
     return classifier
 
 # ==========================================================
