@@ -2,6 +2,7 @@
 # 🤖 AirPulse AI
 # AQI Prediction Page
 # ==========================================================
+
 import streamlit as st
 
 def show_prediction():
@@ -10,6 +11,7 @@ def show_prediction():
 # ===========================
 # Import Libraries
 # ===========================
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -29,6 +31,7 @@ from utils import (
 # ==========================================================
 
 def show_prediction():
+    
     # ==========================================================
     # LOAD DATA, MODEL & PREPROCESSING OBJECTS
     # ==========================================================
