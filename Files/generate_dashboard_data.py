@@ -12,6 +12,7 @@ def categorize_aqi(aqi):
     elif aqi <= 100: return 1
     elif aqi <= 150: return 2
     else: return 3
+    
 df['aqi_category'] = df['aqi'].apply(categorize_aqi)
 
 df.to_csv("E:\\AirPulse AI\\Files\\data\\dashboard_data.csv", index=False)
