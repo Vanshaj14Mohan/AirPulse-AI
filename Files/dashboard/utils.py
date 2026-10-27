@@ -179,7 +179,6 @@ def load_city_encoder():
     encoder = joblib.load(
         os.path.join(BASE_DIR, "models", "city_encoder.pkl")
     )
-
     return encoder
 
 # ===========================
