@@ -167,7 +167,6 @@ def load_country_encoder():
     encoder = joblib.load(
         os.path.join(BASE_DIR, "models", "country_encoder.pkl")
     )
-
     return encoder
 
 # ===========================
