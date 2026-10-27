@@ -189,5 +189,4 @@ def load_scaler():
     scaler = joblib.load(
         os.path.join(BASE_DIR, "models", "scaler.pkl")
     )
-
     return scaler
