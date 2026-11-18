@@ -265,11 +265,9 @@ def show_classification():
             # ==================================================
             # Encode Country and City
             # ==================================================
-
             country_encoded = country_encoder.transform(
                 [selected_country]
             )[0]
-
             city_encoded = city_encoder.transform(
                 [selected_city]
             )[0]
