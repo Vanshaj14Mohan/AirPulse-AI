@@ -46,7 +46,7 @@ def show_classification():
     """)
 
     st.markdown("---")
-    
+
     # ======================================================
     # LOCATION INFORMATION
     # ======================================================
@@ -280,39 +280,22 @@ def show_classification():
             # ==================================================
 
             input_data = pd.DataFrame({
-
                 "country": [country_encoded],
-
                 "city": [city_encoded],
-
                 "latitude": [latitude],
-
                 "longitude": [longitude],
-
                 "pm25": [pm25],
-
                 "pm10": [pm10],
-
                 "no2": [no2],
-
                 "so2": [so2],
-
                 "o3": [o3],
-
                 "co": [co],
-
                 "temperature": [temperature],
-
                 "humidity": [humidity],
-
                 "wind_speed": [wind_speed],
-
                 "hour": [hour],
-
                 "day": [day],
-
                 "month": [month]
-
             })
 
             # ==================================================
