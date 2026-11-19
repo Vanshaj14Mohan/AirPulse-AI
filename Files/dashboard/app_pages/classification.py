@@ -225,7 +225,6 @@ def show_classification():
             max_value=23,
             value=12
         )
-
     # Day
     with col2:
         day = st.slider(
