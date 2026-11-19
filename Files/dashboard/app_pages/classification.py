@@ -233,7 +233,6 @@ def show_classification():
             max_value=31,
             value=15
         )
-
     # Month
     with col3:
         month = st.slider(
