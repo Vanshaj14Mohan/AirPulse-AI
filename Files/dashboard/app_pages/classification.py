@@ -343,8 +343,7 @@ def show_classification():
             # Category Message
             # ==================================================
 
-            if category == "Good":
-
+            if category == "Good"
                 st.success(
                     "🟢 Air quality is considered good."
                 )
