@@ -364,7 +364,6 @@ def show_classification():
                 st.info(
                     f"Predicted classification: {prediction}"
                 )
-
         except Exception as e:
             st.error(
                 f"❌ Classification failed: {e}"
