@@ -357,7 +357,6 @@ def show_classification():
                 st.warning(
                     "🟠 Air quality is unhealthy."
                 )
-
             elif category == "Hazardous":
 
                 st.error(
