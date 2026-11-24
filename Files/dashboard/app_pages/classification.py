@@ -353,12 +353,10 @@ def show_classification():
                     "🟡 Air quality is considered moderate."
                 )
             elif category == "Unhealthy":
-
                 st.warning(
                     "🟠 Air quality is unhealthy."
                 )
             elif category == "Hazardous":
-
                 st.error(
                     "⛔ Air quality is hazardous."
                 )
