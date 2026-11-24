@@ -361,13 +361,11 @@ def show_classification():
                     "⛔ Air quality is hazardous."
                 )
             else:
-
                 st.info(
                     f"Predicted classification: {prediction}"
                 )
 
         except Exception as e:
-
             st.error(
                 f"❌ Classification failed: {e}"
             )
