@@ -360,7 +360,6 @@ def show_classification():
                 st.error(
                     "⛔ Air quality is hazardous."
                 )
-
             else:
 
                 st.info(
