@@ -320,6 +320,7 @@ def show_classification():
                 2: "Unhealthy",
                 3: "Hazardous"
             }
+
             category = category_mapping.get(
                 int(prediction),
                 "Unknown"
