@@ -331,9 +331,7 @@ def show_classification():
             # ==================================================
 
             st.markdown("---")
-
             st.subheader("🎯 Classification Result")
-
             st.metric(
                 "🏷 Predicted AQI Category",
                 category
