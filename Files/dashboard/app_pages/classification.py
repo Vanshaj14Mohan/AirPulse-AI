@@ -297,7 +297,7 @@ def show_classification():
             # ==================================================
             # Apply Same Scaling Used During Training
             # ==================================================
-
+            
             input_scaled = scaler.transform(
                 input_data
             )
@@ -305,6 +305,7 @@ def show_classification():
             # ==================================================
             # Make Classification Prediction
             # ==================================================
+
             prediction = classifier.predict(
                 input_scaled
             )[0]
