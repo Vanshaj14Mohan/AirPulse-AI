@@ -313,7 +313,6 @@ def show_classification():
             # ==================================================
             # Convert Numeric Prediction to AQI Category
             # ==================================================
-
             category_mapping = {
                 0: "Good",
                 1: "Moderate",
