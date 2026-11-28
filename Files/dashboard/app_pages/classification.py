@@ -142,7 +142,6 @@ def show_classification():
     # ======================================================
     # Remaining Pollution Parameters
     # ======================================================
-
     col1, col2, col3 = st.columns(3)
 
     # SO2
